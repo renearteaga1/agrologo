@@ -1,0 +1,54 @@
+<div class="container">
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createModal">
+    Nuevo Producto
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Nuevo Producto</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form class="form-nuevo" action="{% url 'inicio:nuevo_producto' %}" data-endpoint="{% url 'inicio:nuevo_producto' %}" method="post">
+            {% csrf_token %}
+            {% for field in producto_form %}
+              <div class="form-group">
+                  {{field.label}}
+                  {{field}}
+              </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-primary">Guardar</button>
+          </form>
+
+          <!-- <form>
+            <div class="form-group">
+              <label for="nombre">Nombre</label>
+              <input type="text" class="form-control" id="nombre" aria-describedby="emailHelp" placeholder="Nombre Producto">
+            </div>
+            <div class="form-group">
+              <label for="codigo">Codigo</label>
+              <input type="text" class="form-control" id="codigo" placeholder="Codigo">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Categoria</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+          </form> -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <!-- <button type="button" class="btn btn-primary">Guardar</button> -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

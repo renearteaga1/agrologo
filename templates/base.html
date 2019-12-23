@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+    <title>HeLLO</title>
+  </head>
+
+  <body>
+    {% include 'nav.html' %}
+
+{% block content %}
+{% endblock %}
+
+    <div class="container">
+      <h1>Hola</h1>
+      <p>Lista productos: </p>
+    </div>
+
+      <!-- <input list="browsers" name="browser">
+      <datalist id="browsers">
+        <option value="Brasil">
+        <option value="Colombia">
+        <option value="Ecuador">
+
+      </datalist> -->
+
+
+
+    <div class="container">
+      <!-- <button type="" class="del btn btn-success">
+        Nuevo Producto
+      </button> -->
+
+
+
+      <table class="table col-10" id='table-list'>
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Calificacion</th>
+            <th scope="col">Editar</th>
+            <th scope="col">Eliminar</th>
+          </tr>
+        </thead>
+        <tbody class="lista-productos">
+          {% include 'index/table.html' %}
+        </tbody>
+      </table>
+
+      <div class="modal fade" id="modal-list">
+        <div class="modal-dialog">
+          <div class="modal-content"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+  <footer class="py-4 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white"><small>Copyright &copy; AgroLua 2018</small></p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!-- JS Custom-->
+    <script type="text/javascript" src="{% static 'js/index/ajax.html' %}"></script>
+    <script type="text/javascript" src="{% static 'js/rate/rate.html' %}"></script>
+
+
+  </body>
+</html>

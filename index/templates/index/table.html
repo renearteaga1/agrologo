@@ -1,0 +1,42 @@
+
+  {% for p in productos %}
+  <tr class="{{p.name|cut:' '}}" >
+    <th scope="row">{{ forloop.counter }}</th>
+    <td class="name"><a href="{% url 'productos:index' p.id %}">{{ p.name }}</a></td>
+      <td>
+    {% for c in p.categoria.all %}
+      {{c.categoria}},
+    {% endfor %}
+    </td>
+
+    {% if p.rate_set.all %}
+      <!-- {% for r in p.rate_set.all %}
+          <td>
+            <div class=" stars-outer">
+							<div class=" stars-inner"></div>
+						</div>
+						<span class="number-rating">{{ r.rate }}</span>
+          </td>
+      {% endfor %} -->
+
+          <td>
+            <div class=" stars-outer">
+							<div class=" stars-inner"></div>
+						</div>
+						<!-- <span class="number-rating">{{ p.rate_set.all.rate }}</span> -->
+            	<span class="number-rating">{{ p.rate_set.all.rate_avg }}</span>
+              <span class="count-rating" style="color:#eb9a2a;">({{ p.rate_set.all.count }})</span>
+          </td>
+
+    {% else %}
+      <td>
+        <div class=" stars-outer">
+          <div class=" stars-inner"></div>
+        </div>
+        <span class="number-rating">0</span>
+      </td>
+    {% endif %}
+      <td><a href="#">Editar</a></td>
+      <td><button type="button" class="btn btn-danger delete" data-url="{% url 'inicio:delete_producto' p.id %}">Eliminar</button></td>
+  </tr>
+  {% endfor %}

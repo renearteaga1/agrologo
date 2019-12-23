@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+  {% block content %}
+    <div class="container">
+      <h1>Hola</h1>
+      <p>Lista productos: </p>
+    </div>
+
+      <!-- <input list="browsers" name="browser">
+      <datalist id="browsers">
+        <option value="Brasil">
+        <option value="Colombia">
+        <option value="Ecuador">
+
+      </datalist> -->
+
+
+
+    <div class="container">
+      <!-- <button type="" class="del btn btn-success">
+        Nuevo Producto
+      </button> -->
+
+
+
+      <table class="table col-10" id='table-list'>
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Calificacion</th>
+            <th scope="col">Editar</th>
+            <th scope="col">Eliminar</th>
+          </tr>
+        </thead>
+        <tbody class="lista-productos">
+           <!-- include 'index/table.html'  -->
+        </tbody>
+      </table>
+
+      <div class="modal fade" id="modal-list">
+        <div class="modal-dialog">
+          <div class="modal-content"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- include 'index/nuevo.html'  -->
+
+
+{% endblock %}
