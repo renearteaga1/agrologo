@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container mt-2">
+    <h4 class="text-center">Crear un cuenta</h4>
+  </div>
+
+  <form class="" action="" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit" name="button">Registrarme</button>
+  </form>
+
+
+{% endblock %}
