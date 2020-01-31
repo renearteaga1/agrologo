@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load staticfiles %}
+{% load crispy_forms_tags %}
 
 <html lang="en" dir="ltr">
   <head>
@@ -10,6 +11,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
     <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
@@ -65,11 +67,46 @@
 
     <!-- Footer -->
 
-  <footer class="fixed-bottom py-4 green-nav">
+  <footer class="page-footer mt-4 py-4 green-nav text-white">
     <div class="container">
-      <p class="m-0 text-center text-white"><small>Copyright &copy; Agrologo 2019</small></p>
+      <div class="row">
+        <div class="col-4 text-center">
+          <strong>Conócenos</strong>
+          <ul class="list-style">
+            <li>Uno</li>
+            <li>Dos</li>
+          </ul>
+        </div>
+
+        <div class="col-4 text-center">
+          <strong>Ház dinero con nosotros</strong>
+          <ul class="list-style">
+            <li>Uno</li>
+            <li>Dos</li>
+          </ul>
+        </div>
+
+        <div class="col-4 text-center">
+          <strong>Déjanos ayudarte</strong>
+          <ul class="list-style">
+            <li>Uno</li>
+            <li>Dos</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </footer>
+
+  <footer class="page-footer  py-4 bg-dark">
+      <div class="container text-center">
+            <p class="m-0  text-white"><small>Copyright &copy; Agrologo 2019</small></p>
+      </div>
+  </footer>
+
+
+
+
+
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>

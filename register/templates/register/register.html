@@ -1,15 +1,26 @@
 {% extends 'base.html' %}
-
+{% load crispy_forms_tags %}
 {% block content %}
   <div class="container mt-2">
-    <h4 class="text-center">Crear un cuenta</h4>
+      <h4 class="text-center">Crear un cuenta</h4>
   </div>
 
-  <form class="" action="" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <button type="submit" name="button">Registrarme</button>
-  </form>
+
+
+
+<div class="container">
+  <div class="row justify-content-center">
+    <form class="col-11 col-md-7 col-lg-6" action="" method="post">
+      {% csrf_token %}
+      {{ form|crispy }}
+      <div class=" row justify-content-center">
+        <button class="btn btn-success text-center" type="submit" name="button">Registrarme</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
 
 
 {% endblock %}
