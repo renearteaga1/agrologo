@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="container" style="min-height:90%;">
+  <h1 class="text-center my-2">Ingresar</h1>
+  <div class="row justify-content-center my-2">
+    <div class="col-5 bg-light border my-3 py-3" >
+      <form method="post">
+        {% csrf_token %}
+          {{ form|crispy }}
+      </form>
+    </div>
+  </div>
+
+
+</div>
+
+
+
+
+{% endblock %}
