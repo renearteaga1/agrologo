@@ -2,7 +2,7 @@
 {% load staticfiles %}
 {% load crispy_forms_tags %}
 
-<html lang="en" dir="ltr" class="h-100">
+<html lang="en" dir="ltr" class="">
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -19,12 +19,12 @@
     <title>HeLLO</title>
   </head>
 
-  <body class="" >
+  <body class="bg-primary">
 
   <div class="" style="min-height: 100vh; position:relative;">
     {% include 'nav.html' %}
 
-    <div class="container-fluid h-100"  style="padding-bottom: 14em;">
+    <div class="container-fluid bg-danger mb-4" style="padding-bottom: 5em;" >
       {% if messages %}
         {% for message in messages %}
           <div class="alert alert-{{message.tags}}">
@@ -34,48 +34,22 @@
       {% endif %}
       {% block content %}
       {% endblock %}
+      <div class="">
+          hola hola hola hola
+      </div>
     </div>
-
 
     <!-- Footer -->
     <div class="mt-4" style="position:absolute; bottom:0; width:100%;">
-      <footer class="page-footer mt-4 py-4 green-nav text-white">
-        <div class="container">
-          <div class="row">
-            <div class="col-4 text-center">
-              <strong>Conócenos</strong>
-              <ul class="list-style">
-                <li>Uno</li>
-                <li>Dos</li>
-              </ul>
-            </div>
 
-            <div class="col-4 text-center">
-              <strong>Ház dinero con nosotros</strong>
-              <ul class="list-style">
-                <li>Uno</li>
-                <li>Dos</li>
-              </ul>
-            </div>
-
-            <div class="col-4 text-center">
-              <strong>Déjanos ayudarte</strong>
-              <ul class="list-style">
-                <li>Uno</li>
-                <li>Dos</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </footer>
-
-      <footer class="page-footer py-4 bg-dark " >
-          <div class="container text-center">
+          <div class="container text-center bg-dark" style="height:40px;">
                 <p class="m-0  text-white"><small>Copyright &copy; Agrologo 2019</small></p>
           </div>
-      </footer>
+
     </div>
+
   </div>
+
 
 
 
@@ -89,31 +63,13 @@
 
 
 
-    <!-- <div class="container">
 
-      <table class="table col-10" id='table-list'>
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Categoria</th>
-            <th scope="col">Calificacion</th>
-            <th scope="col">Editar</th>
-            <th scope="col">Eliminar</th>
-          </tr>
-        </thead>
-        <tbody class="lista-productos">
-          {% include 'index/table.html' %}
-        </tbody>
-      </table>
 
-      <div class="modal fade" id="modal-list">
-        <div class="modal-dialog">
-          <div class="modal-content"></div>
-        </div>
-      </div>
 
-    </div> -->
+
+
+
+
 
 
 
