@@ -122,16 +122,25 @@
 
     </div>
     <div class="ml-auto d-inline-flex h-100 float-right pr-2">
-      <div class="dropdown align-self-center">
-        <a class="dropdown-toggle text-white" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Ingresa
-        </a>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
+      {% if user.is_authenticated %}
+        <div class="dropdown align-self-center">
+          <a class="dropdown-toggle text-white" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{user.first_name}}
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <!-- <a class="dropdown-item" href="#">Action</a> -->
+          <a class="dropdown-item" href="#">Perfil</a>
+          <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{% url 'account:logout' %}">Salir</a>
+          </div>
         </div>
+      {% else %}
+      <div class="px-2 align-self-center">
+        <a class="text-white px-2" href="{% url 'account:login' %}" id="" role="" data-toggle="" aria-haspopup="true" >
+          Ingresar
+        </a>
       </div>
+      {% endif %}
     <div class="px-2 align-self-center">
       <a class="text-white px-2" href="#" id="" role="" data-toggle="" aria-haspopup="true" >
         Ordenes
