@@ -10,12 +10,12 @@ from .forms import RegisterForm
 def account(request, *args, **kwargs):
     if request.user.is_authenticated:
         if request.method == 'POST':
-            form = UserChangeForm(request.user.id, request.POST)
+            form = UserChangeForm()
             if form.is_valid():
                 form.save()
             return redirect('index:index')
         else:
-            form = UserChangeForm()
+            form = UserChangeForm(instance=request.user)
     context = {
         'form' : form,
     }
