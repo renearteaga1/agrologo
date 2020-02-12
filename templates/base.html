@@ -124,14 +124,17 @@
 
     <!-- JS Custom-->
     <script type="text/javascript" src="{% static 'js/index/nav.js'%}"></script>
-    <script type="text/javascript" src="{% static 'js/index/ajax.html' %}"></script>
-    <script type="text/javascript" src="{% static 'js/rate/rate.html' %}"></script>
+    <!-- <script type="text/javascript" src="{% static 'js/index/ajax.html' %}"></script>
+    <script type="text/javascript" src="{% static 'js/rate/rate.html' %}"></script> -->
 
+
+    {% block jquery %}
+
+    {% endblock %}
     <script type="text/javascript">
     $(document).ready(function(){
 
-      //Select width nav categorias
-      console.log($(body).attr('height'))
+
 
 
     })

@@ -1,3 +1,6 @@
+import random
+import os
+
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -17,9 +20,29 @@ def upload_img_path(instance, filename):
             final_filename=final_filename
             )
 
+GENERO_CHOICES = [
+    ('MASCULINO', 'Masculino'),
+    ('FEMENINO', 'Femenino'),
+    ('NO_DESCRIBE', 'Ninguna me describe'),
+    ('NINGUNO', 'Ninguno')
+]
+
+CIVIL_CHOICES = [
+    ('SOLTERO', 'Soltero/a'),
+    ('COMPROMETIDO', 'Comprometido/a'),
+    ('CASADO', 'Casado/a'),
+    ('UNION', 'Union libre'),
+    ('SEPARADO', 'Separado/a'),
+    ('DIVORCIADO', 'Divorciado/a'),
+    ('VIUDO', 'Viudo/a'),
+    ('NINGUNO', 'Ninguno')
+]
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     image = models.ImageField(default='default.jpg', upload_to=upload_img_path)
+    birthday = models.DateField(null=True, blank=True)
+    genero = models.CharField(max_length=10, choices=GENERO_CHOICES, default='NINGUNO')
+    estado_civil = models.CharField(max_length=10, choices=CIVIL_CHOICES, default='NINGUNO')
 
     def __str__(self):
         return f'{self.user.first_name} Profile'

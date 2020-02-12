@@ -2,15 +2,35 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-  <div class="container mt-2">
+  <div class="container my-2">
       <h4 class="text-center">Perfil</h4>
+  </div>
+
+  <div class="container my-2">
+    <div class="text-center">
+        <div class="row justify-content-center">
+              <img class="rounded" src="{{ user.profile.image.url }}" alt="" style="max-height:9em;">
+        </div>
+        <div class="row justify-content-center mb-3">
+          <form class=""  method="post">
+            <input type="file" id="imgupload" style="display:none"/>
+            <small><a href="" id="OpenImgUpload" class="">Cambiar Imagen</a></small>
+          </form>
+        </div>
+        <div class="row">
+          <div class="media-body">
+            <h2 class="account-heading">{{ user.first_name }}</h2>
+            <p class="text-secondary">{{ user.username }}</p>
+          </div>
+        </div>
+    </div>
   </div>
 
   <div class="container">
     <div class="row justify-content-center">
       <form class="col-11 col-md-7 col-lg-6" action="" method="post">
         {% csrf_token %}
-        {{ form|crispy }}
+        {{ form_user|crispy }}
         <div class=" row justify-content-center">
           <button class="btn btn-success text-center" type="submit" name="button">Registrarme</button>
         </div>
@@ -21,4 +41,30 @@
     </div>
   </div>
 
+  <div class="container">
+    <div class="row justify-content-center">
+      <form class="col-11 col-md-7 col-lg-6" action="" method="post">
+        {% csrf_token %}
+        {{ form_profile|crispy }}
+        <div class=" row justify-content-center">
+          <button class="btn btn-success text-center" type="submit" name="button">Registrarme</button>
+        </div>
+        <div class=" row justify-content-center">
+          <P class="mt-2" >Si ya tiene una cuenta con nosotros, ingrese <a href="{% url 'account:login' %}">aquí</a></button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+
+{% endblock %}
+{% block jquery %}
+<script type="text/javascript">
+  $(document).ready(function(){
+
+    $('#OpenImgUpload').click(function(){ $('#imgupload').trigger('click'); });
+
+  })
+</script>
 {% endblock %}
