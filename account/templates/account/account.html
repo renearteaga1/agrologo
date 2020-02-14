@@ -12,9 +12,15 @@
               <img class="rounded" src="{{ user.profile.image.url }}" alt="" style="max-height:9em;">
         </div>
         <div class="row justify-content-center mb-3">
-          <form class=""  method="post">
-            <input type="file" id="imgupload" style="display:none"/>
-            <small><a href="" id="OpenImgUpload" class="">Cambiar Imagen</a></small>
+          <form  id="form-img" method="post" action="{% url 'account:profile_img' %}"  enctype="multipart/form-data">
+            {% csrf_token %}
+            <!-- <small><label for="file-img" class='file-img-label'>Cambiar imagen</label></small>
+            <input type="file" id="file-img" name="file-img" class="input-file-hidden"/> -->
+            {% for field in form_profile_img %}
+              <small><label for="file-img" class='file-img-label'>Cambiar imagen</label></small>
+              {{ field }}
+            {% endfor %}
+          
           </form>
         </div>
         <div class="row">
@@ -63,8 +69,10 @@
 <script type="text/javascript">
   $(document).ready(function(){
 
-    $('#OpenImgUpload').click(function(){ $('#imgupload').trigger('click'); });
+    $('#file-img').change(function(){
+      $('#form-img').submit();
+    });
 
-  })
+});
 </script>
 {% endblock %}

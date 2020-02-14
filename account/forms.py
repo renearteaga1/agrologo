@@ -17,3 +17,12 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         exclude = ['user']
+
+class ProfileImgForm(forms.ModelForm):
+    #Cambiar_imagen = forms.ImageField(widget=forms.FileInput(attrs={"id":"file-img","class":"input-file-hidden"}))
+    class Meta:
+        model = Profile
+        widgets = {
+            'image': forms.FileInput(attrs={"id":"file-img","class":"input-file-hidden"})
+        }
+        fields = ['image']

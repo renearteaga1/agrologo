@@ -23,3 +23,21 @@
   font-weight: 900;
   color: #f8ce0b;
 }
+
+.input-file-hidden {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.file-img-label {
+  color: #007bff;
+}
+
+.file-img-label:hover {
+  color: black;
+  cursor: pointer;
+}
