@@ -10,5 +10,11 @@ $(document).ready(function(){
 
     $(".buscar").focus()
   });
-
+  console.log('hola');
 })
+
+document.querySelectorAll('.navbar-toggler').addEventListener('click', function(event){
+  console.log(event);
+});
+
+console.log('hola');
